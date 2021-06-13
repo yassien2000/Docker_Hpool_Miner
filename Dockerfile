@@ -14,13 +14,13 @@ RUN apt update \
         && apt update \
         && apt install zip unzip curl wget git -y
 
-RUN wget -O /hpool/miner.zip https://github.com/hpool-dev/chia-miner/releases/download/v1.4.0-2/HPool-Miner-chia-v1.4.0-2-linux.zip \
-	&& wget -O /hpool/ploter.zip https://github.com/hpool-dev/chia-plotter/releases/download/v0.11/chia-plotter-v0.11-x86_64-linux-gnu.zip \
+RUN wget -O /hpool/miner.zip https://github.com/hpool-dev/chia-miner/releases/download/v1.4.1-1/HPool-Miner-chia-v1.4.1-0-arm.zip \
+	
     && unzip miner.zip \
-	&& unzip ploter.zip \
-    && mv linux/* /hpool \
-	&& mv chia-plotter/chia-plotter-linux-amd64 /hpool/plot-sign \
-	&& mv hpool-miner-chia miner \
-    && rm -R linux/ __MACOSX/ chia-plotter/ ploter.zip miner.zip config.yaml
+	
+    && mv linux-arm/* /hpool \
+	
+	&& mv hpool-chia-miner-linux-arm miner \
+    
 
 CMD ["/hpool/miner"]
